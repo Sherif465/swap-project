@@ -1,0 +1,51 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-sidenav-container {
+  height: 100vh;
+}
+   
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+  
+  .example-full-width {
+    padding-top: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust height as needed */
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 94vh; 
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .person-card {
+    width: calc(50% - 40px); 
+    margin: 10px 20px;
+  }
+.no-results{
+  text-align: center;
+  margin-top: 50px;
+}

@@ -1,0 +1,42 @@
+<div [ngClass]="{'darkMode': isDark, 'lightMode': !isDark}">
+    <mat-toolbar color='primary'>
+      <span>Swap App</span>
+      <span class='example-spacer'></span>
+      <form class="example-form">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Search for people name</mat-label>
+          <input matInput #searchBox [value]="searchQuery" (input)="searchPeople(searchBox.value)" />
+        </mat-form-field>
+      </form>
+      <mat-slide-toggle class='example-margin' (ngModel)='isDark' (change)='toggleTheme()'></mat-slide-toggle>
+    </mat-toolbar>
+    <mat-drawer-container class='example-sidenav-container'>
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner diameter="100"></mat-spinner>
+      </div>
+      <div class="container">
+        <div *ngIf="!isLoading && getPagedData().length === 0" class="no-results">
+            <h1>No people found.</h1>
+        </div>
+        <div *ngIf="error" class="error-message">
+          {{ error }}
+        </div>
+        <div class="card-container" *ngIf="!isLoading">
+          <mat-card *ngFor="let person of getPagedData()" class="person-card">
+            <mat-card-header>
+              <mat-card-title>{{ person.name }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Gender: {{ person.gender }}</p>
+              <p>Height: {{ person.height }}</p>
+              <p>Created date: {{ person.created | date}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-drawer-container>
+    <div class="footer">
+      <mat-paginator [length]="data?.count || 82" [pageSizeOptions]="[pageSize]" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+  </div>
+  
