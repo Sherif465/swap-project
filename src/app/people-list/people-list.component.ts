@@ -18,7 +18,7 @@ export class PeopleListComponent implements OnInit{
   filteredPeople: People[] = [];
   currentPage = 1; 
   firstPage = 0;
-  pageSize = 10;
+  pageSize = 20;
   totalPages!: number;  
   isLoading: boolean = false;
   searchQuery: string = '';
