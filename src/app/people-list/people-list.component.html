@@ -3,7 +3,7 @@
       <span>Swap App</span>
       <span class='example-spacer'></span>
       <form class="example-form">
-        <mat-form-field appearance="outline" class="example-full-width">
+        <mat-form-field [appearance]="'fill'" class="example-full-width">
           <mat-label>Search for people name</mat-label>
           <input matInput #searchBox [value]="searchQuery" (input)="searchPeople(searchBox.value)" />
         </mat-form-field>
