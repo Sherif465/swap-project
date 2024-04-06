@@ -8,7 +8,7 @@
           <input matInput #searchBox [value]="searchQuery" (input)="searchPeople(searchBox.value)" />
         </mat-form-field>
       </form>
-      <mat-slide-toggle class='example-margin' (ngModel)='isDark' (change)='toggleTheme()'></mat-slide-toggle>
+      <mat-slide-toggle class='example-margin' [checked]="isDark" (change)='toggleTheme()'></mat-slide-toggle>
     </mat-toolbar>
     <mat-drawer-container class='example-sidenav-container'>
       <div *ngIf="isLoading" class="loading-container">

@@ -28,13 +28,14 @@ export class PeopleListComponent implements OnInit{
   constructor(private fetchingService : FetchingPeopleService) { }
 
   ngOnInit() {
-    this.isDark = false;
+    this.isDark = localStorage.getItem('theme') === 'dark';
     this.loadAllPeople();
     console.log(this.filteredPeople);
   }
 
   toggleTheme() {
   this.isDark = !this.isDark;
+  localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
   }
 
   loadAllPeople() {
